@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Billab-Alpha Property</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0b1120;
+color:white;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+z-index:1000;
+background:rgba(7,12,22,0.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:800;
+color:#fff;
+}
+
+.logo span{
+color:#00b4ff;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+font-size:0.95rem;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00b4ff;
+}
+
+.btn{
+background:linear-gradient(135deg,#00b4ff,#0057ff);
+padding:14px 24px;
+border-radius:12px;
+color:white;
+font-weight:600;
+display:inline-block;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,180,255,0.3);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,#00b4ff33,transparent 70%);
+top:-150px;
+right:-150px;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 420px;
+gap:60px;
+align-items:center;
+margin-top:80px;
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.1;
+margin-bottom:25px;
+font-weight:800;
+}
+
+.hero h1 span{
+color:#00b4ff;
+}
+
+.hero p{
+color:#cbd5e1;
+font-size:1.05rem;
+line-height:1.8;
+max-width:650px;
+margin-bottom:35px;
+}
+
+/* BOOKING CARD */
+
+.booking-card{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.08);
+padding:35px;
+border-radius:28px;
+backdrop-filter:blur(18px);
+box-shadow:0 20px 60px rgba(0,0,0,0.35);
+}
+
+.booking-card h2{
+margin-bottom:25px;
+font-size:1.8rem;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:8px;
+font-size:0.9rem;
+color:#cbd5e1;
+}
+
+.form-group input,
+.form-group select{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#111827;
+color:white;
+outline:none;
+}
+
+.submit-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:linear-gradient(135deg,#00b4ff,#0057ff);
+color:white;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+transform:translateY(-2px);
+}
+
+/* SERVICES */
+
+.services{
+padding:120px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.section-title p{
+color:#94a3b8;
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:#111827;
+padding:35px;
+border-radius:24px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.04);
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+border-color:#00b4ff;
+}
+
+.service-icon{
+width:70px;
+height:70px;
+border-radius:18px;
+background:linear-gradient(135deg,#00b4ff,#0057ff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.5rem;
+margin-bottom:20px;
+}
+
+.service-card h3{
+margin-bottom:15px;
+}
+
+.service-card p{
+color:#94a3b8;
+line-height:1.7;
+}
+
+/* PROPERTY SHOWCASE */
+
+.properties{
+padding:40px 0 120px;
+}
+
+.property-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.property-card{
+background:#111827;
+border-radius:24px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.property-card:hover{
+transform:translateY(-10px);
+}
+
+.property-image{
+height:240px;
+background-size:cover;
+background-position:center;
+}
+
+.property-content{
+padding:25px;
+}
+
+.property-content h3{
+margin-bottom:10px;
+}
+
+.property-content p{
+color:#94a3b8;
+margin-bottom:15px;
+}
+
+.price{
+font-size:1.3rem;
+font-weight:700;
+color:#00b4ff;
+}
+
+/* CTA */
+
+.cta{
+padding:100px 0;
+}
+
+.cta-box{
+background:linear-gradient(135deg,#001d3d,#003566);
+border-radius:32px;
+padding:70px;
+text-align:center;
+}
+
+.cta-box h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.cta-box p{
+max-width:700px;
+margin:auto;
+margin-bottom:35px;
+color:#cbd5e1;
+}
+
+/* FOOTER */
+
+footer{
+background:#050816;
+padding:40px 0;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.footer-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.footer-content p{
+color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+.nav-links{
+display:none;
+}
+
+.cta-box{
+padding:40px 25px;
+}
+
+.cta-box h2{
+font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav-content">
+
+<div class="logo">
+Billab-<span>Alpha</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Properties</a>
+<a href="#">Services</a>
+<a href="#">Management</a>
+<a href="#">Contact</a>
+</div>
+
+<a href="#" class="btn">Book Inspection</a>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<h1>
+Premium Real Estate Solutions For The <span>Modern Investor</span>
+</h1>
+
+<p>
+Billab-Alpha Property delivers comprehensive real estate solutions including property development, management, valuation, mortgage services, leasing, sales, estate appraisal, and maintenance — all designed to maximize value and simplify ownership.
+</p>
+
+<a href="#" class="btn">
+Explore Properties
+</a>
+
+</div>
+
+<!-- BOOKING FORM -->
+
+<div class="booking-card">
+
+<h2>Instant Property Booking</h2>
+
+<form>
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" placeholder="Enter your name">
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email">
+</div>
+
+<div class="form-group">
+<label>Property Type</label>
+<select>
+<option>Luxury Apartment</option>
+<option>Duplex</option>
+<option>Commercial Property</option>
+<option>Office Space</option>
+<option>Land</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Preferred Inspection Date</label>
+<input type="date">
+</div>
+
+<button class="submit-btn">
+Schedule Viewing
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Services</h2>
+<p>Professional real estate solutions tailored to investors, homeowners, and businesses.</p>
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+<div class="service-icon">🏢</div>
+<h3>Property Management</h3>
+<p>
+End-to-end management services ensuring your properties remain profitable, secure, and professionally maintained.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🏗️</div>
+<h3>Property Development</h3>
+<p>
+Modern residential and commercial developments designed with long-term investment value in mind.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">📑</div>
+<h3>Valuation & Appraisal</h3>
+<p>
+Accurate market analysis and property valuation services for investors, banks, and homeowners.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🔑</div>
+<h3>Letting & Leasing</h3>
+<p>
+Connect tenants with premium spaces through streamlined leasing and rental management solutions.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROPERTIES -->
+
+<section class="properties">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Featured Properties</h2>
+<p>Explore some of our premium real estate listings.</p>
+</div>
+
+<div class="property-grid">
+
+<div class="property-card">
+
+<div class="property-image"
+style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop');">
+</div>
+
+<div class="property-content">
+<h3>Luxury Smart Duplex</h3>
+<p>Lekki Phase 1, Lagos</p>
+<div class="price">₦250,000,000</div>
+</div>
+
+</div>
+
+<div class="property-card">
+
+<div class="property-image"
+style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop');">
+</div>
+
+<div class="property-content">
+<h3>Modern Apartment</h3>
+<p>Victoria Island, Lagos</p>
+<div class="price">₦180,000,000</div>
+</div>
+
+</div>
+
+<div class="property-card">
+
+<div class="property-image"
+style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop');">
+</div>
+
+<div class="property-content">
+<h3>Commercial Office Space</h3>
+<p>Ikoyi, Lagos</p>
+<div class="price">₦420,000,000</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>Invest In Premium Real Estate Today</h2>
+
+<p>
+Whether you're buying, leasing, developing, or managing property, Billab-Alpha Property provides a seamless real estate experience backed by expertise and innovation.
+</p>
+
+<a href="#" class="btn">
+Get Started
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-content">
+
+<div class="logo">
+Billab-<span>Alpha</span>
+</div>
+
+<p>
+© 2026 Billab-Alpha Property. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+<script>
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (e) => {
+e.preventDefault();
+
+alert("Your property viewing has been scheduled successfully!");
+});
+
+</script>
+
+</body>
+</html>
